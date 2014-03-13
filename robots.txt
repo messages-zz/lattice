@@ -1,0 +1,4 @@
+# robots.txt for lattice
+
+User-agent: *
+Sitemap: /sitemap.xml
