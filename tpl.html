@@ -31,8 +31,8 @@
     <link rel="search" type="application/opensearchdescription+xml" href="assets/search.xml" title="知乎" />
     
     <!-- Framework CSS -->
-    <link rel="stylesheet" type="text/css" href="resources/styles/bootstrap.min.css" media="screen, print" />
-    <link rel="stylesheet" type="text/css" href="resources/styles/angular-growl.min.css" media="screen, print">
+    <link rel="stylesheet" type="text/css" href="resources/third-party/bootstrap/bootstrap.min.css" media="screen, print" />
+    <link rel="stylesheet" type="text/css" href="resources/third-party/angular-growl/angular-growl.min.css" media="screen, print">
     
     <!-- Documentation extras -->
     <link rel="stylesheet" type="text/css" href="resources/styles/style.css" media="screen, print" />
@@ -65,24 +65,27 @@
     <![endif]-->
     
     <!-- include angular loader, which allows the files to load in any order -->
-    <script type="application/javascript" src="resources/scripts/lib/angular-loader.min.js"></script>
+    <script type="application/javascript" src="resources/third-party/angular/angular-loader.min.js"></script>
     <script type="application/javascript" src="resources/scripts/lib/script.min.js"></script>
     <script type="application/javascript" src="resources/scripts/lib/require.js"></script>
+    <script type="application/javascript" src="resources/scripts/lib/jquery.min.js"></script>
     
-    <!-- <script type="application/javascript" src="resources/scripts/lib/angular.min.js"></script> -->
-    <!-- <script type="application/javascript" src="resources/scripts/lib/angular-growl.min.js"></script> -->
-    <!-- <script type="application/javascript" src="resources/scripts/lib/bootstrap.min.js"></script> -->
-    <!-- <script type="application/javascript" src="resources/scripts/lib/ui-bootstrap-0.10.0.min.js"></script> -->
     <script type="application/javascript">
+    
      	// load all of the dependencies asynchronously.
         $script([
-            'resources/scripts/lib/angular.min.js',
-            'resources/scripts/lib/angular-route.min.js',
-            'resources/scripts/lib/angular-growl.min.js',
-            'resources/scripts/lib/ui-bootstrap-0.10.0.min.js'
+            'resources/third-party/angular/angular.min.js',
+            'resources/third-party/angular/angular-route.min.js',
+            'resources/third-party/angular-growl/angular-growl.min.js',
+            'resources/third-party/bootstrap/ui-bootstrap.min.js',
+            'resources/scripts/app/app.js',
+            'resources/scripts/app/services.js',
+            'resources/scripts/app/controllers.js',
+            'resources/scripts/app/filters.js',
+            'resources/scripts/app/directives.js'
         ], function() {
 			// when all is done, execute bootstrap angular application
-			// angular.bootstrap(document, ['myApp']);
+			angular.bootstrap(document, ['myApp']);
 			
 			define(["require", "./relative/name"], function(require) {
 			    var mod = require("./relative/name");
@@ -90,20 +93,28 @@
         });
     </script>
     
-    
     <style type="text/css">
-    
+        [ng-cloak] {
+          display: none;
+        }
     </style>
 </head>
 <body>
-<noscript>请使用支持脚本的浏览器！</noscript>
+    <noscript>请使用支持脚本的浏览器！</noscript>
+    
+    Redirecting you to http://www.google.com
+    
+    <!--[if lt IE 10]>
+    <div style="clear:both;height:59px;padding:0 0 0 15px;position:relative;"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"> <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /> </a></div>
+    <![endif]-->
 
-Redirecting you to http://www.google.com
-
-<!--[if lt IE 10]>
-<div style="clear:both;height:59px;padding:0 0 0 15px;position:relative;"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"> <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /> </a></div>
-<![endif]-->
-
-
+    <div ng-cloak>
+        <ul class="menu">
+            <li><a href="#/view1">view1</a></li>
+            <li><a href="#/view2">view2</a></li>
+        </ul>
+        <div ng-view></div>
+        <div>Angular seed app: v<span app-version></span></div>
+    </div>
 </body>
 </html>

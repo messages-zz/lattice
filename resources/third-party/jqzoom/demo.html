@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!-- Modifications to this file will be overwritten. -->
+<!--[if lt IE 7]><html class="lt-ie10 ie6" lang="zh-CN"><![endif]-->
+<!--[if IE 7]><html class="lt-ie10 ie7" lang="zh-CN"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 ie8" lang="zh-CN"><![endif]-->
+<!--[if IE 9]><html class="lt-ie10 ie9" lang="zh-CN"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="zh-CN" dir="ltr"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>JQzoom 2 Demo</title>
+    <script type="text/javascript" src="../../scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.jqzoom.js"></script>
+    <script type="text/javascript" src="scripts/jquery.tools.js"></script>
+    
+    <link rel="stylesheet" href="styles/jquery.jqzoom.css" type="text/css">
+    <style type="text/css">
+
+    .product-image {
+        width: 302px;
+        height: 370px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    .product-image .small {
+        width: 300px;
+        height: 300px;
+        display: block;
+        margin-bottom: 4px;
+        border: 1px solid #e4e4e4;
+    }
+    .product-image .disabled {
+        cursor: default;
+        background-color: #f1f1f1;
+    }
+    .product-image .prev {
+        /* -150px -510px no-repeat */
+        width: 10px;
+        height: 62px;
+        display: block;
+        float: left;
+        margin-right: 5px;
+        outline: none;
+        blr: expression(this.hideFocus = true);
+        border: 1px solid #e4e4e4;
+        background: url(http://demo.shopxx.net/resources/shop/images/product.gif) -120px -510px no-repeat;
+    }
+    .product-image a[class="prev disabled"] {
+        background: url(http://demo.shopxx.net/resources/shop/images/product.gif) -150px -510px no-repeat #f4f4f4;
+    }
+    .product-image .prev:hover {
+        background-color: #f1f1f1;
+    }
+    .product-image .next {
+        width: 10px;
+        height: 62px;
+        display: block;
+        float: right;
+        margin-left: 4px;
+        outline: none;
+        blr: expression(this.hideFocus = true);
+        border: 1px solid #e4e4e4;
+        background: url(http://demo.shopxx.net/resources/shop/images/product.gif) -180px -510px no-repeat;
+    }
+    .product-image a[class="next disabled"] {
+        background: url(http://demo.shopxx.net/resources/shop/images/product.gif) -210px -510px no-repeat #f4f4f4;
+    }
+    .product-image .next:hover {
+        background-color: #f1f1f1;
+    }
+    
+    .product-image .scrollable {
+        width: 268px;
+        height: 64px;
+        float: left;
+        position: relative;
+        overflow: hidden;
+    }
+    .product-image .scrollable img {
+        width: 60px;
+        height: 60px;
+        display: block;
+    }
+    .product-image .scrollable .thumb-items {
+        width: 20000em;
+        position: absolute;
+    }
+    .product-image .scrollable a {
+        display: block;
+        float: left;
+        padding: 1px;
+        margin-right: 4px;
+        outline: none;
+        blr: expression(this.hideFocus = true);
+        border: 1px solid #e4e4e4;
+    }
+    .product-image .scrollable a.thumb-active {
+        padding: 0px;
+        border: 2px solid #ff9900;
+    }
+    
+    
+    .specification .selected {
+        border: 1px solid #f08b02;
+    }
+    .specification .image {
+        width: 26px;
+        height: 26px;
+        padding: 1px;
+        border: 1px solid #cccccc;
+        background-color: #ffffff;
+    }
+    .specification .image img {
+        width: 26px;
+        height: 26px;
+        display: block;
+    }
+    .specification .selected span {
+        display: block;
+    }
+    .specification a {
+        display: block;
+        float: left;
+        position: relative;
+        outline: none;
+        blr: expression(this.hideFocus = true);
+    }
+    .specification a span {
+        width: 13px;
+        height: 13px;
+        display: none;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        overflow: hidden;
+        background: url(http://demo.shopxx.net/resources/shop/images/product.gif) 0px -540px no-repeat;
+    }
+    
+    
+    .specification .text {
+        height: 24px;
+        line-height: 24px;
+        padding: 0px 8px;
+        border-top: 1px solid #eeeeee;
+        border-right: 1px solid #bbbbbb;
+        border-bottom: 1px solid #bbbbbb;
+        border-left: 1px solid #eeeeee;
+        background-color: #ffffff;
+        text-decoration: none;
+    }
+    
+    .specification .locked {
+        color: #d6d6d6;
+        cursor: not-allowed;
+        border-color: #bbbbbb;
+        border-style: dotted;
+    }
+    </style>
+    <script type="text/javascript">
+    
+    $(document).ready(function() {
+    	$('.jqzoom').jqzoom({
+            zoomType: 'standard',
+            lens:true,
+            preloadImages: false,
+            alwaysOn:false
+        });
+    	
+    	
+    	var $zoom = $("#zoom");
+    	var $scrollable = $("#scrollable");
+    	var $thumbnail = $("#scrollable a");
+
+    	// 商品图片放大镜
+    	$zoom.jqzoom({
+    		// zoomType: 'standard',
+            // lens:true,
+    		zoomWidth: 368,
+    		zoomHeight: 368,
+    		title: true,
+    		showPreload: false,
+    		preloadImages: false,
+    		alwaysOn:false
+    	});
+    	
+    	// 商品缩略图滚动
+    	$scrollable.scrollable();
+    	
+    	$thumbnail.hover(function() {
+    		var $this = $(this);
+    		if ($this.hasClass("thumb-active")) {
+    			return false;
+    		} else {
+    			$thumbnail.removeClass("thumb-active");
+    			$this.addClass("thumb-active").click();
+    		}
+    	});
+
+    	
+    });
+    </script>
+</head>
+
+<body>
+<div class="product-image">
+	<a id="zoom" href="images/large/4a51167a-89d5-4710-aca2-7c76edc355b8-large.jpg" rel="gallery" title="triumph">
+		<img class="small" src="images/small/4a51167a-89d5-4710-aca2-7c76edc355b8-small.jpg"  title="triumph"/>
+	</a>
+	<a href="javascript:;" class="prev"></a>
+	<div id="scrollable" class="scrollable">
+		<div class="thumb-items">
+    		<a class="thumb-active" href="javascript:void(0);" rel="{gallery: 'gallery', smallimage: 'images/small/4a51167a-89d5-4710-aca2-7c76edc355b8-small.jpg', largeimage: 'images/large/4a51167a-89d5-4710-aca2-7c76edc355b8-large.jpg'}"><img src="images/thumbnail/4a51167a-89d5-4710-aca2-7c76edc355b8-thumbnail.jpg" title="" /></a>
+    		<a href="javascript:void(0);" rel="{gallery: 'gallery', smallimage: 'images/small/4eb9903f-54f4-4f47-9b48-c247a903cf53-small.jpg', largeimage: 'images/large/4eb9903f-54f4-4f47-9b48-c247a903cf53-large.jpg'}"><img src="images/thumbnail/4eb9903f-54f4-4f47-9b48-c247a903cf53-thumbnail.jpg" title="" /></a>
+            <a href="javascript:void(0);" rel="{gallery: 'gallery', smallimage: 'images/small/triumph-4eb9903f-54f4-4f47-9b48-c247a903cf12-small.jpg',largeimage: 'images/large/triumph-4eb9903f-54f4-4f47-9b48-c247a903cf12-large.jpg'}"><img src='images/thumbnail/triumph-4eb9903f-54f4-4f47-9b48-c247a903cf12-thumbnail.jpg'></a>
+			<a href="javascript:void(0);" rel="{gallery: 'gallery', smallimage: 'images/small/triumph-4eb9903f-54f4-4f47-9b48-c247a903cf22-small.jpg',largeimage: 'images/large/triumph-4eb9903f-54f4-4f47-9b48-c247a903cf22-large.jpg'}"><img src='images/thumbnail/triumph-4eb9903f-54f4-4f47-9b48-c247a903cf22-thumbnail.jpg'></a>
+			<a href="javascript:void(0);" rel="{gallery: 'gallery', smallimage: 'images/small/triumph-4eb9903f-54f4-4f47-9b48-c247a903cf52-small.jpg',largeimage: 'images/large/triumph-4eb9903f-54f4-4f47-9b48-c247a903cf52-large.jpg'}"><img src='images/thumbnail/triumph-4eb9903f-54f4-4f47-9b48-c247a903cf52-thumbnail.jpg'></a>
+		</div>
+	</div>
+	<a href="javascript:;" class="next"></a>
+</div>
+
+
+<div class="specification">
+    <a href="javascript:void(0);" class="image selected" val="18"><img src="http://storage.shopxx.net/demo-image/3.0/specification/18.gif" alt="绿色" title="绿色"><span title="点击取消选择">&nbsp;</span></a>
+    
+    <a href="javascript:void(0);" class="text selected" val="45">M<span title="点击取消选择">&nbsp;</span></a>
+</div>
+
+</body>
+</html>

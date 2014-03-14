@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Modifications to this file will be overwritten. -->
+<!--[if lt IE 7]><html class="lt-ie10 ie6" lang="zh-CN"><![endif]-->
+<!--[if IE 7]><html class="lt-ie10 ie7" lang="zh-CN"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 ie8" lang="zh-CN"><![endif]-->
+<!--[if IE 9]><html class="lt-ie10 ie9" lang="zh-CN"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="zh-CN" dir="ltr"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Nivo Slider Demo</title>
+    <link rel="stylesheet" href="styles/nivo-slider.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="themes/default/styles/default.css" type="text/css" media="screen" />
+	<style type="text/css">
+		body {font: 12px tahoma, Arial, Verdana, sans-serif;}
+		.slider-wrapper{width: 770px;position: relative;}
+		#slider {width: 770px;height: 290px;margin-bottom: 10px;overflow: hidden;position: relative;}
+	</style>
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="slider-wrapper theme-default">
+        <div id="slider" class="nivo-slider">
+            <a href="http://www.ticeng.com"><img src="http://storage.shopxx.net/demo-image/3.0/ad/index_1.jpg" width="770" height="290" data-thumb="" alt="享受这一刻的舒适" title="享受这一刻的舒适" /></a> 
+            <img src="http://storage.shopxx.net/demo-image/3.0/ad/index_2.jpg" width="770" height="290" data-thumb="" alt="浪漫时尚季" title="浪漫时尚季" data-transition="slideInLeft" /> 
+            <img src="http://storage.shopxx.net/demo-image/3.0/ad/index_3.jpg" width="770" height="290" data-thumb="" alt="" title="#htmlcaption" />
+        </div>
+        <div id="htmlcaption" class="nivo-html-caption">
+            <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="scripts/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.nivo.slider.js"></script>
+<script type="text/javascript">
+	$(window).load(function() {
+		// $('#slider').nivoSlider();
+
+		var $slider = $("#slider");
+
+		$slider.nivoSlider({
+			effect : "random",
+			animSpeed : 1000,
+			pauseTime : 6000,
+			controlNav : true,
+			keyboardNav : false,
+			captionOpacity : 0.4
+		});
+
+	});
+</script>
+</body>
+</html>

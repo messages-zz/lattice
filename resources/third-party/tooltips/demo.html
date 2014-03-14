@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- Modifications to this file will be overwritten. -->
+<!--[if lt IE 7]><html class="lt-ie10 ie6" lang="zh-CN"><![endif]-->
+<!--[if IE 7]><html class="lt-ie10 ie7" lang="zh-CN"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 ie8" lang="zh-CN"><![endif]-->
+<!--[if IE 9]><html class="lt-ie10 ie9" lang="zh-CN"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="zh-CN" dir="ltr"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+    <title>CSS Tooltips Example</title>
+    <style type="text/css">
+    .tips {
+    	font-size: 12px;
+    	width: 200px;
+    	padding: 10px;
+    	border: 1px solid #ccc;
+    	background: #ffffcc;
+    	color: red;
+    	position: relative;
+    }
+    .tips .tips-close a {
+    	width: 15px;
+    	height: 15px;
+    	display: block;
+    	float: right;
+    	overflow: hidden;
+    	background: url(./tips_close.png) 0px 0px;
+    }
+    .tips .tips-close a:hover {
+    	background: url(./tips_close.png) 15px 0px;
+    }
+    .tips span.tips-arrow {
+    	position: absolute;
+    	width: 22px;
+    	height: 15px;
+    	background: url(./tips_arrow.png) no-repeat;
+    	top: 50px;
+    	left: 40px;
+    }
+    
+    
+    
+    
+    .tips2 {
+    	font-size: 12px;
+    	width: 200px;
+    	padding: 10px;
+    	border: 1px solid #ccc;
+    	background: #ffffcc;
+    	color: red;
+    	position: relative;
+    }
+    .tips2 .tips-close a {
+    	width: 15px;
+    	height: 15px;
+    	display: block;
+    	float: right;
+    	overflow: hidden;
+    	background: url(./tips_close.png) 0px 0px;
+    }
+    .tips2 .tips-close a:hover {
+    	background: url(./tips_close.png) 15px 0px;
+    }
+    .tips2 .tips-out {
+    	position: absolute;
+    	top: 35px;
+    	left: 40px;
+    	border-width: 8px;
+    	border-style: solid dashed dashed dashed;
+    	border-color: #ccc transparent transparent transparent;
+    }
+    
+    .tips2 .tips-in {
+    	position: absolute;
+    	top: 34px;
+    	left: 40px;
+    	border-width: 8px;
+    	border-style: solid dashed dashed dashed;
+    	border-color: #ffffcc transparent transparent transparent;
+    
+    }
+    </style>
+</head>
+<body>
+<br/>
+<div class="tips">
+	<div class="tips-close"><a href="javascript:void(0)" title="关闭"></a></div>
+	<div class="tips-message">看看别人分享了什么^_^！<a class="iknow" href="">我知道了</a></div>
+	<span class="tips-arrow"></span>
+<div>
+
+<div class="tips2">
+	<div class="tips-close"><a href="javascript:void(0)" title="关闭"></a></div>
+	这是一个小小的tips~~
+	<span class="tips-out"></span>
+	<span class="tips-in"></span>
+</div>
+</body>
+</html>
