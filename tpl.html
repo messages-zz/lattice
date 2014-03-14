@@ -1,48 +1,105 @@
 <!DOCTYPE html>
 <!-- Modifications to this file will be overwritten. -->
-<!--[if lt IE 7]><html class="lt-ie10 ie6" lang="zh-CN"><![endif]-->
-<!--[if IE 7]><html class="lt-ie10 ie7" lang="zh-CN"><![endif]-->
-<!--[if IE 8]><html class="lt-ie10 ie8" lang="zh-CN"><![endif]-->
-<!--[if IE 9]><html class="lt-ie10 ie9" lang="zh-CN"><![endif]-->
+<!--[if lt IE 7]><html class="lt-ie10 ie6" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie10 ie7" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 ie8" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if IE 9]><html class="lt-ie10 ie9" lang="zh-CN" dir="ltr"><![endif]-->
 <!--[if gt IE 9]><!--><html lang="zh-CN" dir="ltr"><!--<![endif]-->
 <head>
-    <!-- meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="hongquanli@qq.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="hongquanli@qq.com" />
     <title>Lattice web</title>
-    <meta name="keywords" content="lattice, web">
-    <meta name="description" content="Lattice">
+    <meta name="keywords" content="lattice, web" />
+    <meta name="description" content="Lattice" />
     
+    <meta name="apple-itunes-app" content="app-id=100000000" />
+    
+    <meta http-equiv="mobile-agent" content="format=html5;url=http://www.ticeng.com/" />
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/icon/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="assets/icon/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-57-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-72-precomposed.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-76-precomposed.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-114-precomposed.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-120-precomposed.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-152-precomposed.png" sizes="152x152" />
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="assets/icon/favicon.png"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    
+    <link rel="search" type="application/opensearchdescription+xml" href="assets/search.xml" title="知乎" />
     
     <!-- Framework CSS -->
-    <link rel="stylesheet" href="resources/styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/styles/bootstrap.min.css" media="screen, print" />
+    <link rel="stylesheet" type="text/css" href="resources/styles/angular-growl.min.css" media="screen, print">
     
     <!-- Documentation extras -->
-    <link href="./docs-assets/css/docs.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/highlight.js/7.3/styles/github.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="resources/styles/style.css" media="screen, print" />
     
-    <!--[if lt IE 9]><script src="./assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if IE 6]><script type="application/javascript">location.href='/ie6';</script><![endif]-->
+    <!-- 
+    <script type="application/javascript">
+    if (window.ActiveXObject) {
+        var ua = navigator.userAgent.toLowerCase();
+        var ie = ua.match(/msie ([\d.]+)/)[1]
+        if (ie == 6.0)
+            location.href = "/ie6/";
+    }
+    </script>
+    -->
+    
+    <!--[if lt IE 8]>
+    <script type="application/javascript" src="resources/scripts/browser-not-supported.js"></script>
+    <![endif]-->
+    
+    <!--[if lt IE 9]>
+    <script type="application/javascript" src="resources/scripts/ie8-responsive-file-warning.js"></script>
+    <![endif]-->
     
     <!-- html5shim - HTML5 IE enabling script -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script type="application/javascript" src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
-    <script type="application/javascript" src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <script type="application/javascript" src="resources/scripts/lib/html5shiv.min.js"></script>
+    <script type="application/javascript" src="resources/scripts/lib/respond.min.js"></script>
     <![endif]-->
     
-    <!--[if lt IE 10]>
-    <script type="application/javascript" src="browser-not-supported.js"></script>
-    <![endif]-->
+    <!-- include angular loader, which allows the files to load in any order -->
+    <script type="application/javascript" src="resources/scripts/lib/angular-loader.min.js"></script>
+    <script type="application/javascript" src="resources/scripts/lib/script.min.js"></script>
+    <script type="application/javascript" src="resources/scripts/lib/require.js"></script>
+    
+    <!-- <script type="application/javascript" src="resources/scripts/lib/angular.min.js"></script> -->
+    <!-- <script type="application/javascript" src="resources/scripts/lib/angular-growl.min.js"></script> -->
+    <!-- <script type="application/javascript" src="resources/scripts/lib/bootstrap.min.js"></script> -->
+    <!-- <script type="application/javascript" src="resources/scripts/lib/ui-bootstrap-0.10.0.min.js"></script> -->
+    <script type="application/javascript">
+     	// load all of the dependencies asynchronously.
+        $script([
+            'resources/scripts/lib/angular.min.js',
+            'resources/scripts/lib/angular-route.min.js',
+            'resources/scripts/lib/angular-growl.min.js',
+            'resources/scripts/lib/ui-bootstrap-0.10.0.min.js'
+        ], function() {
+			// when all is done, execute bootstrap angular application
+			// angular.bootstrap(document, ['myApp']);
+			
+			define(["require", "./relative/name"], function(require) {
+			    var mod = require("./relative/name");
+			});
+        });
+    </script>
+    
+    
     <style type="text/css">
     
     </style>
 </head>
 <body>
+<noscript>请使用支持脚本的浏览器！</noscript>
+
+Redirecting you to http://www.google.com
+
 <!--[if lt IE 10]>
 <div style="clear:both;height:59px;padding:0 0 0 15px;position:relative;"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"> <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /> </a></div>
 <![endif]-->
