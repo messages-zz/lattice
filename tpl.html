@@ -32,6 +32,7 @@
     
     <!-- Framework CSS -->
     <link rel="stylesheet" type="text/css" href="resources/third-party/bootstrap/bootstrap.min.css" media="screen, print" />
+    <link rel="stylesheet" type="text/css" href="resources/third-party/bootstrap/bootstrap-theme.min.css" media="screen, print" />
     <link rel="stylesheet" type="text/css" href="resources/third-party/angular-growl/angular-growl.min.css" media="screen, print">
     
     <!-- Documentation extras -->
@@ -54,7 +55,7 @@
     <![endif]-->
     
     <!--[if lt IE 9]>
-    <script type="application/javascript" src="resources/scripts/ie8-responsive-file-warning.js"></script>
+	<script type="application/javascript" src="resources/scripts/ie8-responsive-file-warning.js"></script>
     <![endif]-->
     
     <!-- html5shim - HTML5 IE enabling script -->
@@ -64,6 +65,7 @@
     <script type="application/javascript" src="resources/scripts/lib/respond.min.js"></script>
     <![endif]-->
     
+    <script type="application/javascript" src="resources/scripts/lib/fastclick.js"></script>
     <!-- include angular loader, which allows the files to load in any order -->
     <script type="application/javascript" src="resources/third-party/angular/angular-loader.min.js"></script>
     <script type="application/javascript" src="resources/scripts/lib/script.min.js"></script>
@@ -76,27 +78,30 @@
         $script([
             'resources/third-party/angular/angular.min.js',
             'resources/third-party/angular/angular-route.min.js',
+            // angular-animate.min.js
+            // angular-mocks.js
+            // angular-sanitize.js
             'resources/third-party/angular-growl/angular-growl.min.js',
-            'resources/third-party/bootstrap/ui-bootstrap.min.js',
+            'resources/third-party/bootstrap/ui-bootstrap-tpls.min.js',
+            // 'resources/third-party/bootstrap/ui-bootstrap.min.js',
             'resources/scripts/app/app.js',
             'resources/scripts/app/services.js',
             'resources/scripts/app/controllers.js',
             'resources/scripts/app/filters.js',
             'resources/scripts/app/directives.js'
         ], function() {
-			// when all is done, execute bootstrap angular application
-			angular.bootstrap(document, ['myApp']);
-			
-			define(["require", "./relative/name"], function(require) {
-			    var mod = require("./relative/name");
-			});
+        	
+            // when all is done, execute bootstrap angular application
+            angular.bootstrap(document, ['myApp']);
+            
+            define(["require", "./relative/name"], function(require) {
+                var mod = require("./relative/name");
+            });
         });
     </script>
     
     <style type="text/css">
-        [ng-cloak] {
-          display: none;
-        }
+        
     </style>
 </head>
 <body>
@@ -116,5 +121,22 @@
         <div ng-view></div>
         <div>Angular seed app: v<span app-version></span></div>
     </div>
+    
+    <div>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <h1 ng-show="yourName != null" ng-cloak>Hello, {{ yourName }}!</h1>
+      <h1 ng-bind="yourName"></h1>
+      <h1 ng-bind-template="hello, {{yourName}}"></h1>
+    </div>
+    
+    <div ng-controller="MyController" ng-cloak>
+      {{ person.name }}
+    </div>
+    
+    <div ng-controller="AlertDemoCtrl">
+        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)" ng-cloak>{{alert.msg}}</alert>
+        <button class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+    </div>
+
 </body>
 </html>
