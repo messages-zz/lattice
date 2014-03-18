@@ -6,28 +6,6 @@
 ::-webkit-scrollbar-thumb {background-color:#c2c2c2;background-clip:padding-box;border:1px solid #979797;min-height:28px;}
 ::-webkit-scrollbar-thumb:hover {border:1px solid #636363;background-color:#929292;}
 
-/* 
-  Allow angular.js to be loaded in body, hiding cloaked elements until 
-  templates compile.  The !important is important given that there may be 
-  other selectors that are more specific or come later and might alter display.  
-*/
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
-.ng-cloak, .x-ng-cloak,
-.ng-hide {
-    display:none !important;
-}
-ng\:form {
-    display:block;
-}
-.ng-animate-start {
-    clip:rect(0,auto,auto,0);
-    -ms-zoom:1.0001;
-}
-.ng-animate-active {
-    clip:rect(-1px,auto,auto,0);
-    -ms-zoom:1;
-}
-
 .no-select {
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -62,4 +40,21 @@ ng\:form {
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+
+
+.expander {
+    border: 1px solid black;
+    width: 250px;
+}
+
+.expander>.title {
+    background-color: black;
+    color: white;
+    padding: .1em .3em;
+    cursor: pointer;
+}
+
+.expander>.body {
+    padding: .1em .3em;
 }

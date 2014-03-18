@@ -7,7 +7,6 @@
 // Declare app level module which depends on filters, and services
 // Then you can create an injector and load your modules like this: var injector
 // = angular.injector(['ng', 'myModule'])
-// 'ngMock', 'ngMockE2E', 
 angular.module('lattice', [ 'ngCookies', 'ngAnimate', 'ngResource', 'ngRoute', 'ui.bootstrap', 'lattice.filters', 'lattice.services', 'lattice.directives', 'lattice.controllers' ]).config([ '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
 	FastClick.attach(document.body);
