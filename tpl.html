@@ -70,7 +70,8 @@
     <!-- include angular loader, which allows the files to load in any order -->
     <script type="application/javascript" src="resources/third-party/angular/angular-loader.min.js"></script>
     <script type="application/javascript" src="resources/scripts/lib/script.min.js"></script>
-    <script type="application/javascript" data-main="resources/scripts/main.js" src="resources/scripts/lib/require.js"></script>
+    <!-- async属性表明这个文件需要异步加载，避免网页失去响应。IE不支持这个属性，只支持defer，所以把defer也写上 -->
+    <script type="application/javascript" data-main="resources/scripts/main.js" src="resources/scripts/lib/require.js" defer async="true"></script>
     <script type="application/javascript" src="resources/scripts/lib/jquery.min.js"></script>
     
     <script type="application/javascript">
@@ -150,7 +151,7 @@
     </div>
     
     <div ng-controller='SomeController'>
-        <ui-accordion>
+        <ui-accordion ng-cloak>
             <expander class='expander' ng-repeat='expander in expanders' expander-title='expander.title'>
                 {{expander.text}}
             </expander>
@@ -203,5 +204,128 @@
         <td>{{friendObj.phone}}</td>
     </tr>
     </table>
+    
+    
+    
+    
+    
+    
+    
+    
+    <style type="text/css">
+    .topbar{
+        height: 32px;
+        min-height: 32px;border-radius: 0px;
+        background-color: #2c2c2c;
+        background-image: -moz-linear-gradient(top, #333333, #222222);
+        background-image: -ms-linear-gradient(top, #333333, #222222);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
+        background-image: -webkit-linear-gradient(top, #333333, #222222);
+        background-image: -o-linear-gradient(top, #333333, #222222);
+        background-image: linear-gradient(top, #333333, #222222);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+        margin-bottom: 0;
+    }
+    .topbar * {
+        box-sizing: content-box;
+    }
+    .topbar .container {width: auto;padding-left: 0px;padding-right: 0px;}
+    .topbar .navbar-collapse {padding: 0;}
+    .topbar {border-color: #101010;}
+    .topbar .navbar-nav li a {
+        line-height: 30px;
+        height: 30px;
+        padding-top: 0;
+        border-right: 1px solid #464444;
+        padding-bottom: 0;
+    }
+    .topbar .navbar-nav > .open > a, .topbar .navbar-nav > .open > a:hover, .topbar .navbar-nav > .open > a:focus {
+        background-color: #ffffff;
+        color: #080808;
+        border-width: 0px 0px 0 1px;
+        border-style: solid;
+        border-color: #2A313B;
+        line-height: 32px;
+        height: 32px;
+    }
+    
+    .topbar .dropdown-menu {width: 480px; padding: 10px;border-top: 0;}
+    .topbar .dropdown-menu li {
+        float: left;
+        width: 160px;
+        padding: 5px 0;
+    }
+    .topbar .dropdown-menu li a {
+        border-right: 0px solid #464444;
+        height: 28px;
+        line-height: 28px;
+    }
+    
+    
+    .navbar {
+        margin-bottom: 0;
+    }
+    .navbar .container {width: auto;padding-left: 0px;padding-right: 0px;}
+    .navbar .navbar-brand {
+        float: left;
+        line-height: 50px;
+        margin-left: 0;
+        padding: 0 40px 0 14px;
+        font-size: 18px;
+        color: #999999;
+    }
+    
+    .main-container {
+        padding: 0 15px;
+    }
+    </style>
+    <div class="topbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <!-- <a class="navbar-brand" href="#">Bootstrap theme</a> -->
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something</a></li>
+                            <!-- <li class="divider"></li> -->
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more</a></li>
+                        </ul></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Bootstrap theme</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    
 </body>
 </html>

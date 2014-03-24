@@ -50,9 +50,6 @@
     height: 32px;
 }
 
-.topbar .navbar-nav.navbar-right:last-child {
-	margin-right: 0;
-}
 .topbar .dropdown-menu {width: 480px; padding: 10px;border-top: 0;}
 .topbar .dropdown-menu li {
     float: left;

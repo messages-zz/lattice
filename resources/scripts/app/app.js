@@ -13,28 +13,37 @@ angular.module('lattice', [ 'ngCookies', 'ngAnimate', 'ngResource', 'ngRoute', '
 	FastClick.attach(document.body);
 	// delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-	$routeProvider.when('/view1', {
-		templateUrl : 'resources/scripts/app/templates/partial1.html',
+	$routeProvider.when('/product', {
+		templateUrl : 'resources/templates/partial1.html',
 		controller : 'MyCtrl1',
+		// controllerAs: 'view1',
 		resolve : {
-			// I will cause a 1 second delay
-			delay : function($q, $timeout) {
-				var delay = $q.defer();
-				$timeout(delay.resolve, 1000);
-				return delay.promise;
-			}
+//			// I will cause a 1 second delay
+//			delay : function($q, $timeout) {
+//				var delay = $q.defer();
+//				$timeout(delay.resolve, 1000);
+//				return delay.promise;
+//			}
 		}
-	}).when('/view2', {
-		templateUrl : 'resources/scripts/app/templates/partial2.html',
+	}).when('/product_categories', {
+		templateUrl : 'resources/templates/partial2.html',
 		controller : 'MyCtrl2'
-	}).otherwise({
-		redirectTo : '/view1'
-	});
+	})
+//	.otherwise({
+//		redirectTo : '/product'
+//	});
 
+	
+	// TODO 需要History API支持
+	
+	// 让路径的前面加个叹号
 	// Configure existing providers
 	// $locationProvider.hashPrefix('!')
 
-	// configure html5 to get links working on jsfiddle
-	// $locationProvider.html5Mode(true);
+	/*
+	// 不让链接里面带有符号"#"
+	configure html5 to get links working on jsfiddle
+	$locationProvider.html5Mode(true);
+	*/
 } ]);
 

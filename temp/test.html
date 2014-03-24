@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- Modifications to this file will be overwritten. -->
+<!--[if lt IE 7]><html class="lt-ie10 ie6" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie10 ie7" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 ie8" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if IE 9]><html class="lt-ie10 ie9" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="zh-CN" dir="ltr"><!--<![endif]-->
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="hongquanli@qq.com" />
+    <title>Lattice web</title>
+	<script src="base64.min.js"></script>
+</head>
+<body>
+
+<!--  style="display:none;" -->
+<div style="display:none;">
+<img id="tulip" src="http://alloyteam.github.io/AlloyDesigner/bt/ged/2.png" alt="The Tulip" />
+</div>
+
+<img id="pic" src=""/>
+
+<canvas id="myCanvas">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script type="application/javascript">
+
+	var canvas = document.getElementById("myCanvas");
+	// var img = document.getElementById("tulip");
+
+	var ctx = canvas.getContext("2d");
+	// ctx.canvas.width  = 400;
+	// ctx.canvas.height = 250;
+
+	var img_url = '2.png';
+
+	if (ctx){
+		
+		var img = new Image();
+		img.onload = function(){
+			try {
+				var w = img.width, h = img.height;
+				canvas.width = w;
+				canvas.height = h;
+
+				ctx.drawImage(img, 0, 0);
+				// alert(canvas.width + '-' + canvas.height);
+				var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+				var tempData = '';
+				// 反转颜色
+				for (var i = 0;i < imgData.data.length;i += 4) {
+
+					// imgData.data[i] = 255 - imgData.data[i];
+					// imgData.data[i + 1] = 255 - imgData.data[i + 1];
+					// imgData.data[i + 2] = 255 - imgData.data[i + 2];
+					// imgData.data[i + 3] = 255;
+					var r = imgData.data[i];
+					var g = imgData.data[i + 1];
+					var b = imgData.data[i + 2];
+					// console.log(r + '-' + g + '-' + b);
+
+					r = r.toString(2);
+					g = g.toString(2);
+					b = b.toString(2);
+
+					tempData += r;
+					tempData += g;
+					tempData += b;
+
+					// tempData += parseInt(r)<128? '0':'1';
+					// tempData += parseInt(g)<128? '0':'1';
+					// tempData += parseInt(b)<128? '0':'1';
+
+					// var rgb = ('' + r + g + b).toString(2);
+					// tempData += rgb;
+
+					// var gray = calculateGrayValue(r, g, b);
+					// if(gray < 127) {
+					// 	tempData += 0;
+					// } else {
+					//	tempData += 1;
+					// }
+
+					// tempData += gray.toString(2);
+					// alert(gray);
+					// break;
+				}
+
+				var code = '';
+				for(var i = 0; i < tempData.length; i += 8 ){
+					code += String.fromCharCode(tempData.slice(i, i + 8));
+					// alert(tempData.slice(i, i + 8));
+					// break;
+				}
+				document.write(code);
+				// code = Base64.encode(code);
+				// document.getElementById('pic').src = 'data:image/png;base64,' + code;
+				// ctx.putImageData(imgData, 0, 0);
+
+			} catch (e) {
+				alert(e.message)
+			}      
+		}
+		img.src = img_url;
+	}
+
+	//计算图像的灰度值,公式为：Gray = R*0.299 + G*0.587 + B*0.114
+	function calculateGrayValue(rValue,gValue,bValue){
+		return parseInt(rValue * 0.299 + gValue * 0.587 + bValue * 0.114);
+	}	
+	
+</script>
+   
+</body>
+</html>

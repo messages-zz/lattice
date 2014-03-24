@@ -1,0 +1,25 @@
+<div class="navbar navbar-default" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Lattice Mall</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+                <!-- {true: 'active', false: ''}[isActive] -->
+				<li ng-repeat="nav in navs" ng-class="{active:active('/{{nav.path}}')}"><a href="#/{{nav.path}}">{{nav.name}}</a></li>
+                <!-- 
+				<li ng-class="{active:isActive('/product_categories')}"><a href="#/product_categories">商品分类</a></li>
+				<li ng-class=""><a href="#contact">商品参数</a></li>
+				<li ng-class=""><a href="#contact">商品属性</a></li>
+				<li ng-class=""><a href="#contact">规格管理</a></li>
+				<li ng-class=""><a href="#contact">品牌管理</a></li>
+				<li ng-class=""><a href="#contact">到货通知</a></li>
+                -->
+			</ul>
+		</div>
+		<!--/.nav-collapse -->
+	</div>
+</div>

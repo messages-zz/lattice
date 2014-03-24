@@ -28,10 +28,11 @@ function createServlet(Class) {
 }
 
 /**
- * An Http server implementation that uses a map of methods to decide
- * action routing.
- *
- * @param {Object} Map of method => Handler function
+ * An Http server implementation that uses a map of methods to decide action
+ * routing.
+ * 
+ * @param {Object}
+ *            Map of method => Handler function
  */
 function HttpServer(handlers) {
   this.handlers = handlers;

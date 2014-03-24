@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- Modifications to this file will be overwritten. -->
+<!--[if lt IE 7]><html class="no-js lt-ie10 ie6" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie10 ie7" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie10 ie8" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie10 ie9" lang="zh-CN" dir="ltr"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="zh-CN" dir="ltr"><!--<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="zh-CN">
+<!--<![endif]-->
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="hongquanli@qq.com" />
+    <title>Lattice web</title>
+    <meta name="keywords" content="lattice, web" />
+    <meta name="description" content="Lattice" />
+    
+    <meta name="apple-itunes-app" content="app-id=100000000" />
+    
+    <meta http-equiv="mobile-agent" content="format=html5;url=http://www.ticeng.com/" />
+    <!-- Favicons -->
+    <!-- <link rel="apple-touch-icon" href="assets/icon/apple-touch-icon-57-precomposed.png?14.3.19.1" /> -->
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-57-precomposed.png?14.3.19.1" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-72-precomposed.png?14.3.19.1" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-76-precomposed.png?14.3.19.1" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-114-precomposed.png?14.3.19.1" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-120-precomposed.png?14.3.19.1" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/apple-touch-icon-152-precomposed.png?14.3.19.1" sizes="152x152" />
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="assets/icon/favicon.png" /> -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    
+    <!-- 启动动画 -->
+    <!-- <link rel="apple-touch-startup-image" href="http://t.cn/zY1POql" /> -->
+    <!-- 隐藏浏览器组件 -->
+    <!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
+    <!-- 改变Safari状态栏的外观 -->
+
+    <!-- // 默认 //白色 default // 黑色 //黑色 black // 黑色半透明 //black-translucent -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <link rel="search" type="application/opensearchdescription+xml" href="assets/search.xml" title="梯层" />
+    
+    <!-- Framework CSS -->
+    <link rel="stylesheet" type="text/css" href="resources/third-party/bootstrap/bootstrap.min.css?14.3.19.1" media="screen, print" />
+    <!-- <link rel="stylesheet" type="text/css" href="resources/third-party/bootstrap/bootstrap-theme.min.css" media="screen, print" /> -->
+    <link rel="stylesheet" type="text/css" href="resources/third-party/angular-growl/angular-growl.min.css?14.3.19.1" media="screen, print" />
+    <link rel="stylesheet" type="text/css" href="resources/third-party/angular/angular-csp.css?14.3.19.1" media="screen, print" />
+    
+    <!-- Documentation extras -->
+    <link rel="stylesheet" type="text/css" href="resources/styles/style.css?14.3.19.1" media="screen, print" />
+    
+    <!--[if IE 6]><script type="application/javascript">location.href='/ie6';</script><![endif]-->
+    <!-- 
+    <script type="application/javascript">
+    if (window.ActiveXObject) {
+        var ua = navigator.userAgent.toLowerCase();
+        var ie = ua.match(/msie ([\d.]+)/)[1]
+        if (ie == 6.0)
+            location.href = "/ie6/";
+    }
+    </script>
+    -->
+    
+    <!--[if lt IE 8]>
+    <script type="application/javascript" src="resources/scripts/browser-not-supported.js?14.3.19.1"></script>
+    <![endif]-->
+    
+    <!--[if lt IE 9]>
+	<script type="application/javascript" src="resources/scripts/ie8-responsive-file-warning.js?14.3.19.1"></script>
+    <![endif]-->
+    
+    <!-- html5shim - HTML5 IE enabling script -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="application/javascript" src="resources/third-party/html5shiv/html5shiv.min.js?14.3.19.1"></script>
+    <script type="application/javascript" src="resources/third-party/respondjs/respond.min.js?14.3.19.1"></script>
+    <![endif]-->
+    
+	<!-- ?timestamp=1395213406461 -->
+    <script type="application/javascript" src="resources/third-party/fastclick/fastclick.js?14.3.19.1"></script>
+    <!-- include angular loader, which allows the files to load in any order -->
+    <script type="application/javascript" src="resources/third-party/angular/angular-loader.min.js?14.3.19.1"></script>
+    <script type="application/javascript" src="resources/third-party/scriptjs/script.min.js?14.3.19.1"></script>
+    <!--This sets the baseUrl to the "scripts" directory, and loads a script that will have a module ID of 'main'-->
+    <!-- async属性表明这个文件需要异步加载，避免网页失去响应。IE不支持这个属性，只支持defer，所以把defer也写上  defer async="true" -->
+    <!-- data-main属性的作用是，指定网页程序的主模块。在上例中，就是js目录下面的main.js，这个文件会第一个被require.js加载。由于require.js默认的文件后缀名是js，所以可以把main.js简写成main -->
+    <script type="application/javascript" data-main="resources/scripts/main" src="resources/third-party/requirejs/require.js?14.3.19.1"></script>
+    
+    <script type="application/javascript">
+    
+        if(!window.console){
+            console = {
+                log: function(info){
+                	return false
+                }
+            }
+        }
+        
+        var URL_CONFIG={
+        	'home' : '/'
+        }
+        
+    	// // angular app 自动初始化
+    	// ng-app="optionalModuleName"
+    	//
+    	// // 手动初始化
+    	// angular.element(document).ready(function() {
+        //	angular.bootstrap(document);
+        // });
+    
+    	/*
+        require(["helper/util"], function(util) {
+            //This function is called when scripts/helper/util.js is loaded.
+            //If util.js calls define(), then this function is not fired until
+            //util's dependencies have loaded, and the util argument will hold
+            //the module value for "helper/util".
+        });
+    	*/
+    	
+     	// load all of the dependencies asynchronously.
+        $script([
+            // 'resources/scripts/lib/jquery.min.js',
+            'resources/third-party/angular/angular.min.js',
+            'resources/third-party/angular/angular-route.min.js',
+            // angular-animate.min.js
+            // angular-mocks.js
+            // angular-sanitize.js
+            'resources/third-party/angular-growl/angular-growl.min.js',
+            'resources/third-party/angular/angular-animate.min.js',
+            'resources/third-party/angular/angular-resource.min.js',
+            'resources/third-party/angular/angular-mocks.js',
+            'resources/third-party/angular/angular-cookies.min.js',
+            // 'resources/third-party/bootstrap/ui-bootstrap.min.js',
+            'resources/third-party/bootstrap/ui-bootstrap-tpls.min.js',
+            'resources/scripts/app/app.js',
+            'resources/scripts/app/common/services.js',
+            'resources/scripts/app/common/controllers.js',
+            'resources/scripts/app/common/filters.js',
+            'resources/scripts/app/common/directives.js'
+        ], function() {
+        	
+            // when all is done, execute bootstrap angular application
+			debugger;
+            angular.bootstrap(document, ['lattice']);
+            
+        });
+    </script>
+    
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+    <noscript>请使用支持脚本的浏览器！V<span version></span></noscript>
+    
+    <div topbar></div>
+    <div navbar></div>
+    
+    <div ng-view></div>
+    
+</body>
+</html>
